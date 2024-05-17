@@ -9,16 +9,6 @@ pelicula('La La Land', 'Musical', 'PG-13', 13, 'Violencia Moderada', 8.4, ['Musi
 pelicula('Coco', 'Animacion', 'G', 0, 'Ninguno', 8.4, ['Animacion', 'Comedia'], 'HBO').
 
 
-buscar_por_plataforma(Plataforma, Pelicula) :-
-    pelicula(Pelicula, _, _, _, _, _, _, Plataforma).
-
-buscar_por_puntaje(PuntajeMinimo, Pelicula) :-
-    pelicula(Pelicula, _, _, _, _, Puntaje, _, _),
-    Puntaje >= PuntajeMinimo.
-
-buscar_pelicula_especifica(Genero, Clasificacion, Plataforma, Pelicula) :-
-    pelicula(Pelicula, Genero, Clasificacion, _, _, _, _, Plataforma).
-
 % ?- buscar_por_genero('Ciencia Ficcion', Pelicula).
 % ?- buscar_por_edad_recomendada(13, Pelicula).
 % ?- buscar_por_plataforma('Netflix', Pelicula).
