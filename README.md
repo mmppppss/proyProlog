@@ -5,3 +5,9 @@ los cuales pueden ser:
     - Clasificacion
     - Edad Recomendada
     - Contenido Especifico
+    - Puntaje de criticas
+    - Subgeneros
+    - Plataforma en la que se encuentra
+
+Dando al usuario opcionoes para generar una recomendacion en base a las especificaciones
+
