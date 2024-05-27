@@ -1,4 +1,4 @@
-:- module(images, [image/2 , boton/3]).
+:- module(images, [image/2 , boton/3, contenedorSiNo/4]).
 %/
 
 :- use_module(library(pce)).
@@ -22,6 +22,17 @@ boton(BtName, Text, Action):-
     send(BtName, pen, 0),
 	send(BtName, radius, 5),
     send(BtName, font, font('Roboto', normal, 12)).
+
+contenedorSiNo(Window, Txt, BotonSi, BotonNo):-
+	new(Window, dialog('')),
+	send(Window, size, size(420, 100)),
+	new(Text, text(Txt)),
+	boton(BotonSi, 'Si', message(Window, destroy)),
+	boton(BotonNo, 'No', message(Window, destroy)),
+	send(Window, append, Text),
+	send(Window, append, BotonSi),
+	send(Window, append, BotonNo).
+
 %
 %image(ImgName, File):-
 %	new(Bitmap, bitmap(resource(File))),
