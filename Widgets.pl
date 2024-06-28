@@ -1,4 +1,4 @@
-:- module(images, [image/2 , boton/3, contenedorSiNo/4]).
+:- module(Widgets, [image/2 , boton/3,botonStyle/1, contenedorSiNo/4]).
 %/
 
 :- use_module(library(pce)).
@@ -6,7 +6,6 @@
 :- pce_image_directory('./images').
 
 resource(fondo, image, image('back.jpg')).
-
 image(Window, Img) :- 
 	new(Bitmap, bitmap(resource(Img))),
 	new(Figura, figure),
@@ -22,6 +21,12 @@ boton(BtName, Text, Action):-
     send(BtName, pen, 0),
 	send(BtName, radius, 5),
     send(BtName, font, font('Roboto', normal, 12)).
+botonStyle(Btn):-
+	send(Btn, colour, black),
+	%send(BtName, background, white),
+    send(Btn, pen, 0),
+	send(Btn, radius, 5),
+    send(Btn, font, font('Roboto', normal, 12)).
 
 contenedorSiNo(Window, Txt, BotonSi, BotonNo):-
 	new(Window, dialog('')),
