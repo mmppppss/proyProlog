@@ -1,37 +1,18 @@
 %%%%
 :- use_module(library(pce)).
+:- consult('./conocimientos.pl').
 :- consult('./Widgets.pl').
-:- consult('./csvProcesor.pl').
 
-columnas([]).
-columnas([Col|Rest]) :-
-    writeln(Col),
-	columnas(Rest).
-
-filas([], @WindowTest):- send(@WindowTest, open).
-filas([row(Col1,Col2, Col3)|Rest], @WindowTest) :-
-	container(Col3, @WindowTest),
-	write(Col1),write('|'),write(Col2), write('|'), write(Col3),nl,
-    filas(Rest, @WindowTest).
-
-procesar_contenido_csv(Archivo, Filas) :-
-	csv_read_file(Archivo, Filas).
-
-container(Pregunta, @WindowPreg):-
+result:-
+	diagnostico(Tipo, Recomendaciones),
 	new(Window, dialog('')),
-	send(Window, size, size(420, 100)),
-	new(Text, text(Pregunta)),
-	boton(BotonSi, 'Si', message(Window, destroy)),
-	boton(BotonNo, 'No', message(Window, destroy)),
-	send(Window, append, Text),
-	send(Window, append, BotonSi),
-	send(Window, append, BotonNo),
-	send(@WindowPreg, append, Window).
-
-procesar:-
-	new(WindowTest, dialog('Test General')),
-	procesar_contenido_csv('basedeconocimientos.csv', Filas),
-	filas(Filas, WindowTest).
+	new(Result, text(Tipo)),
+	send(Result, font, font(screen, bold, 21)),
+	new(Result2, text(Recomendaciones)),
+	send(Window, append, Result),
+	send(Window, append, Result2),
+	send(Window, open),
+	clean.
 gui:-
 	new(Window, dialog('')),
 	send(Window, size, size(420, 420)),
@@ -41,9 +22,8 @@ gui:-
 	send(Descripcion, font, font(screen, bold, 21)),
 	send(Descripcion2, font, font(screen, bold, 18)),
 	image(Window, fondo),
-	boton(TestGeneral, 'Test General', message(@prolog, procesar)),
+	boton(TestGeneral, 'Test General', message(@prolog, result)),
 	boton(Salir, 'Salir',message(Window,destroy) ),
-	
 	send(Botones, append, TestGeneral),
 	send(Botones, append, Salir),
 	send(Window, append, Descripcion),
@@ -51,4 +31,4 @@ gui:-
 	send(Window, append, Botones, below),
 	send(Window, open).
 
-:-gui.
+:- gui.

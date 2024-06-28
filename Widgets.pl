@@ -1,4 +1,4 @@
-:- module(Widgets, [image/2 , boton/3,botonStyle/1, contenedorSiNo/4]).
+:- module(widgets, [image/2 , boton/3,botonStyle/1, contenedorSiNo/4]).
 %/
 
 :- use_module(library(pce)).
