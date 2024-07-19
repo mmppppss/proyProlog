@@ -114,20 +114,117 @@ domiciliar:-
 	dom1, dom2, dom3, dom4, dom5,
 	dom6, dom7,	dom8, dom9,	dom10.
 
-laboral:-
-	lab1, lab2, lab3, lab4, lab5,
-	lab6, lab7, lab8, lab9, lab10,
-	lab11, lab12, lab13, lab14, lab15.
+domiciliar:- 
+    dom1, dom2, dom3, dom4, dom5,
+    dom6, dom7, dom8, dom9, dom10.
+
+domiciliar:- 
+    dom2, dom4, dom6, dom8, dom10.
+
+domiciliar:- 
+    dom1, dom3, dom5, dom7, dom9.
+
+domiciliar:- 
+    dom1, dom2, dom5, dom6, dom7.
+
+domiciliar:- 
+    dom3, dom4, dom8, dom9, dom10.
+
+domiciliar:- 
+    dom1, dom3, dom6, dom7, dom10.
+
+domiciliar:- 
+    dom1, dom2, dom5.
+
+domiciliar:- 
+    dom6, dom7, dom8.
+
+domiciliar:- 
+    dom9, dom10, dom6.
+
+domiciliar:- 
+    dom3, dom4, dom5.
+
+domiciliar:- 
+    dom1, dom3, dom8.
+
+
 
 laboral:-
-	lab1, lab2, lab3, lab4, lab5.
+    lab1, lab2, lab3, lab4, lab5,
+    lab6, lab7, lab8, lab9, lab10,
+    lab11, lab12, lab13, lab14, lab15.
+
+laboral:-
+    lab2, lab4, lab6, lab8, lab10,
+    lab12, lab14.
+
+laboral:-
+    lab1, lab3, lab5, lab7, lab9,
+    lab11, lab13, lab15.
+
+laboral:-
+    lab1, lab2, lab3, lab4, lab5,
+    lab6, lab7, lab8.
+
+laboral:-
+    lab3, lab6, lab9, lab12, lab15.
+
+laboral:-
+    lab1, lab2, lab3.
+
+laboral:-
+    lab4, lab5, lab6.
+
+laboral:-
+    lab7, lab8, lab9.
+
+laboral:-
+    lab10, lab11, lab12.
+
+laboral:-
+    lab13, lab14, lab15.
+
+
+
 
 escolar:-
-	esc1, esc2, esc3, esc4, esc5,
-	esc6, esc7, esc8, esc9, esc10,
-	esc11, esc12, esc13, esc14.
+    esc1, esc2, esc3, esc4, esc5,
+    esc6, esc7, esc8, esc9, esc10,
+    esc11, esc12, esc13, esc14.
 
-dom1:- pregunta('¿Qué relación o parentesco tiene con la persona agresora?'), !.
+escolar:-
+    esc2, esc4, esc6, esc8, esc10,
+    esc12, esc14.
+
+escolar:-
+    esc1, esc3, esc5, esc7, esc9,
+    esc11, esc13.
+
+escolar:-
+    esc1, esc2, esc3, esc4, esc5,
+    esc6, esc7, esc8.
+
+escolar:-
+    esc3, esc6, esc9, esc12, esc14.
+
+escolar:-
+    esc1, esc2, esc3.
+
+escolar:-
+    esc4, esc5, esc6.
+
+escolar:-
+    esc7, esc8, esc9.
+
+escolar:-
+    esc10, esc11, esc12.
+
+escolar:-
+    esc13, esc14, esc1.
+
+
+dom1:- pregunta('¿Tiene relacion de parentesco con la persona agresora?'), !.
 dom2:- pregunta('Actualmente usted vive en la misma casa con la persona agresora'), !.
 dom3:- pregunta('¿Padece usted de alguna enfermedad, invalidez o discapacidad de cualquier clase?'), !.
 dom4:- pregunta('¿Tiene usted (la víctima) trabajo?'), !.
@@ -149,7 +246,7 @@ lab8:- pregunta('Te han insultado.'), !.
 lab9:- pregunta('Se han negado de manera consistente a responder a tus llamadas de teléfono o emails.'), !.
 lab10:- pregunta('Te han clavado la mirada de modo hostil.'), !.
 lab11:- pregunta('Te han regañado o rebajado frente a otros.'), !.
-lab12:- pregunta('Has sido víctima de rumores o cotilleos.'), !.
+lab12:- pregunta('Has sido víctima de rumores o "chismes".'), !.
 lab13:- pregunta('Te han excluido de reuniones sociales relacionadas con el trabajo.'), !.
 lab14:- pregunta('Alguien ha alardeado de su estatus o te ha tratado de un modo condescendiente.'), !.
 lab15:- pregunta('Se han marchado con rapidez de un lugar cuando tú has entrado.'), !.
@@ -165,7 +262,7 @@ esc8:- pregunta('Me empujan:'), !.
 esc9:- pregunta('Se meten conmigo para hacerme llorar:'), !.
 esc10:- pregunta('. Se burlan de mi apariencia física:'), !.
 esc11:- pregunta('Hacen gestos de burla o desprecio hacia mí:'), !.
-esc12:- pregunta(' Me dan collejas o tortazos:'), !.
+esc12:- pregunta(' Me dan golpes, "cocachos" o similares'), !.
 esc13:- pregunta(' Me insultan para burlarse de mí:'), !.
 esc14:- pregunta(' Se meten conmigo por mi forma de ser:'), !.
 

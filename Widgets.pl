@@ -36,7 +36,8 @@ contenedorSiNo(Window, Txt, BotonSi, BotonNo):-
 	boton(BotonNo, 'No', message(Window, destroy)),
 	send(Window, append, Text),
 	send(Window, append, BotonSi),
-	send(Window, append, BotonNo).
+	send(Window, append, BotonNo),
+	send(Window, open).
 
 %
 %image(ImgName, File):-
